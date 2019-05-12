@@ -1,0 +1,343 @@
+*{
+	font-family: "Microsoft YaHei"
+}
+html,body{
+	margin: 0;
+	width: 100%;
+	height: 100%;
+	
+}
+body{
+	background-image: url('../img/bc.png');
+	background-size: cover;
+	background-color: #EFF5FA;
+}
+
+.platform{
+	margin: auto;
+	width: 1200px;
+	height: 681px;
+	position: relative;
+	top: 50%;
+	transform: translateY(-50%);
+}
+.menu{
+	position: absolute;
+	float: left;
+	width: 190px;
+	margin-right: 10px;
+}
+.menu-menu{
+	background-color: #fff;
+	box-shadow: 0 1px 3px rgba(26,26,26,.1);
+}
+.menu-userinfo{
+	margin: 0 auto 10px auto;
+	padding: 10px 20px;
+	background-color: #fff;
+	box-shadow: 0 1px 3px rgba(26,26,26,.1);
+}
+.menu-history{
+	position: absolute;
+	background-color: #fff;
+	box-shadow: 0 1px 3px rgba(26,26,26,.1);
+	width: 190px;
+	height: 475px;
+	overflow: hidden;
+	margin-top: 10px;
+}
+.userinfo-img{
+	display: inline-block;
+	width: 20px;
+	height: 20px;
+	vertical-align: bottom;
+	background-size: cover;
+}
+.img-sunrise{
+	background-image: url('../img/sunrise.png');
+}
+.img-sun{
+	background-image: url('../img/sun.png');
+}
+.img-noon{
+	background-image: url('../img/noon.png');
+}
+.img-tea{
+	background-image: url('../img/tea.png');
+}
+.img-moon{
+	background-image: url('../img/moon.png');
+}
+.img-sleep{
+	background-image: url('../img/sleep.png');
+}
+.userinfo-name{
+	font-size: 15px;
+	color: #333333;
+}
+.userinfo-college{
+	margin-top: 2px;
+	font-size: 12px;
+	color: #999999;
+}
+.menu-element{
+	height: 22px;
+	font-size: 16px;
+	padding: 10px 20px;
+	cursor: pointer;
+	color: rgb(120, 120, 120);
+}
+.menu-element:hover{
+	background-color: rgb(252, 252, 252);
+	color: rgb(80, 80, 80);
+}
+.menu-ele-select{
+	background-color: rgb(245, 245, 245);
+	cursor: default;
+	color: rgb(80, 80, 80);
+}
+.menu-ele-select:hover{
+	background-color: rgb(245, 245, 245);
+}
+.history-content{
+	height: 475px;
+	width: 220px;
+	overflow-y: auto;
+}
+.history-element{
+	width: 170px;
+	padding: 13px 10px;
+	overflow: hidden;
+	color: rgb(120, 120, 120);
+	cursor: pointer;
+	border-bottom: 1px solid lightgray;
+}
+.history-element:hover{
+	background-color: rgb(252, 252, 252);
+	color: rgb(80, 80, 80);
+}
+.history-selected{
+	background-color: rgb(245, 245, 245);
+	cursor: default;
+	color: rgb(80, 80, 80);
+}
+.history-selected:hover{
+	background-color: rgb(245, 245, 245);
+}
+.history-ele-title{
+	font-size: 14px;
+}
+.history-ele-time{
+	font-size: 12px;
+}
+.history-ele-status{
+	width: 0;
+	height: 0;
+	overflow: hidden;
+}
+.history-ele-status:after{
+	font-size: 12px;
+	padding: 1px 4px;
+}
+.h-e-s-done:after{
+	content: "已完成";
+	color: gray;
+	background-color: #88eeff;
+}
+.h-e-s-doing:after{
+	content: "搜索中";
+	color: gray;
+	background-color: lightgreen;
+}
+.h-e-s-fail:after{
+	content: "失败";
+	color: gray;
+	background-color: pink;
+}
+.operator{
+	position: relative;
+	float: right;
+	width: 1000px;
+	zoom: 1;
+}
+.operator-control{
+	width: 900px;
+	padding: 30px 50px 10px 50px;
+	background-color: #fff;
+	box-shadow: 0 1px 3px rgba(26,26,26,.1);
+}
+.operator-control:after {
+    content: '';
+    display: block;
+    visibility: hidden;
+    clear: both;
+    overflow: hidden;
+}
+.operator-show{
+	width: 1000px;
+	height: 490px;
+	margin-top: 10px;
+	background-color: #fff;
+	box-shadow: 0 1px 3px rgba(26,26,26,.1);
+}
+
+/**
+ * 控制板部分内容
+ */
+
+/**
+ * 选填单元
+ */
+.control-element{
+	float: left;
+	width: 276px;
+	height: 27px;
+	padding-bottom: 20px;
+	padding-left: 10px;
+	padding-right: 10px;
+	text-align: left;
+}
+
+/**
+ * 选填提示label
+ */
+.control-label{
+	display: inline-block;
+	width: 60px;
+	margin-right: 10px;
+	font-size: 15px;
+	font-weight: 400;
+	color: rgb(50, 50, 50);
+	text-align: justify;
+	float: left;
+	margin-top: 3px;
+}
+.control-label:after{
+    content:':';
+    width: 100%;
+    display: inline-block;
+    overflow: hidden;
+    height: 0;
+}
+
+/**
+ * 输入框
+ */
+.control-input{
+	width: 200px;
+	padding: 0 10px;
+	line-height: 25px;
+	border:1px solid #ccc;
+	font-size: 12px;
+	position: relative;
+	display: inline-block;
+}
+.control-input:focus{
+	outline: none;
+}
+
+/**
+ * 下拉框
+ */
+.control-select{
+	width: 198px;
+	line-height: 25px;
+	border:1px solid #ccc;
+	font-size: 12px;
+	position: relative;
+	display: inline-block;
+}
+.control-select i{
+	width: 0;
+	height: 0;
+	border-top: 5px solid #333;
+	border-left: 5px solid transparent;
+	border-right: 5px solid transparent;
+	position: absolute;
+	top: 10px;
+	right: 10px;
+}
+.control-select span{
+	display: block;
+	padding: 0 10px;
+	font-size: 13px;
+	height: 25px;
+	cursor: pointer;
+	overflow: auto;
+}
+.control-select ul{
+	width: 198px;
+	position: absolute;
+	z-index: 999;
+	max-height: 500px;
+	overflow: auto;
+}
+.control-select ul,.control-select li{
+	padding: 0;
+	margin:0;
+}
+.control-select li{
+	padding: 0 10px;line-height: 30px;
+	background-color: #ffffff;
+	color: #666;
+	list-style-type: none;
+	border:1px solid #ccc;
+	border-top: none;
+	cursor: pointer;
+	transition: all 0.5s ease 0s;
+}
+.control-select li:first-child{            
+	border-top: 1px solid #ccc;
+}
+.control-select li:hover{
+	background-color: rgb(240, 255, 255);
+	padding-left: 20px;
+	font-weight: bold;
+}
+.control-select ul{
+	display: none;
+}
+
+/**
+ * 多选框
+ */
+.control-multselect{
+	width: 198px;
+	line-height: 25px;
+	border:1px solid #ccc;
+	font-size: 12px;
+	position: relative;
+	display: inline-block;
+}
+.control-multselect span{
+	display: block;
+	padding: 0 10px;
+	font-size: 13px;
+	height: 25px;
+	cursor: pointer;
+}
+.control-multselect>div{
+	display: hidden;
+	position: absolute;
+}
+
+/**
+ * 按钮
+ */
+.control-btn{
+	width: 198px;
+	margin-left: 35px;
+	height: 25px;
+	background-color: #0084ff;
+	position: absolute;
+	color: #fff;
+	padding-top: 2px;
+	text-align: center;
+	cursor: pointer;
+}
+.control-btn:hover{
+	background-color: #0074ff;
+}
+
+
+

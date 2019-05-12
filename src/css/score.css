@@ -1,0 +1,296 @@
+.operator-show-up{
+    width: 100%;
+    height: 50px;
+    position: relative;
+}
+/* 复选框1 */
+.check{
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    display: inline-block;
+    width: 94px;
+    height: 21px;
+    background: url('../img/check.png') no-repeat ;
+    background-position: 72px 0px;
+    background-size: 21px 21px;
+}
+.checked{
+    background: url('../img/checked.png') no-repeat ;
+    background-position: 72px 0px;
+    background-size: 21px 21px;
+}
+input.choose_xiala{
+    visibility: hidden;
+}
+.checkOne{
+    margin-left: 80px;
+}
+.checkTwo{
+    margin-left: 20px;
+}
+/* 加载信息 */
+.o-s-up-message{
+    line-height: 50px;
+    margin-left: 100px;
+}
+/* 取消按钮 */
+.o-s-up-cancle{
+    display: none;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    right: 100px;
+    width: 120px;
+    height: 25px;
+    background-color:#e6a23c;
+    border: none;
+    text-align: center;
+    color: white;
+    letter-spacing: 5px;
+    cursor: pointer;
+    border-radius: 5px;
+    box-shadow: 0px 0px 3px #aaa;
+    font-weight: bold;
+    outline:none;
+    transition: all 0.5s ease-in-out;
+}
+.o-s-up-cancle::first-letter{
+    margin-left: 5px;
+}
+.o-s-up-cancle:hover{
+    transition: all 0.5s ease-in-out;
+    height: 35px;
+}
+/* 打印按钮 */
+.o-s-up-print{
+    /* display: none; */
+    position: absolute;
+    right: 280px;
+    width: 150px;
+    height: 25px;
+    background-color:  #219b62;
+    border-radius: 5px;
+    outline:none;
+    box-shadow: 0px 0px 3px #aaa;
+    border: none;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+    color: white;
+    transition: all 0.5s ease-in-out;
+}
+.o-s-up-print:hover{
+    transition: all 0.5s ease-in-out;
+    height: 35px;
+}
+/* 关闭按钮 */
+.o-s-up-close{
+    /* display: none; */
+    position: absolute;
+    right: 80px;
+    width: 150px;
+    height: 25px;
+    background-color:  #ec2c1e;
+    border-radius: 5px;
+    outline:none;
+    box-shadow: 0px 0px 3px #aaa;
+    border: none;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+    color: white;
+    transition: all 0.5s ease-in-out;
+}
+.o-s-up-close:hover{
+    transition: all 0.5s ease-in-out;
+    height: 35px;
+}
+
+
+.operator-show-down{
+    margin: 25px auto;
+    margin-top: 0;
+    width: 95%;
+    height: 405px;
+}
+.o-s-d-thead{
+    width: 100%;
+    height: 50px;
+    border-bottom: 1px solid #909399;
+    font-size: 17px;
+    font-weight: bold;
+}
+.o-s-d-thead li{
+    display: block;
+    list-style: none;
+    float: left;
+    line-height: 50px;
+    width: 170px;
+    height: 50px;
+    overflow: auto;
+}
+.o-s-d-thead li::-webkit-scrollbar {
+    display: none;
+}
+.o-s-d-thead .shortLi{
+    width: 130px;
+}
+.o-s-d-thead li:nth-child(1){
+    margin-left: 19px;
+}
+.o-s-d-thead span{
+    width: 15px;
+    height: 50px;
+    line-height: 50px;
+    vertical-align: bottom;
+    font-size: 12px;
+}
+
+.o-s-d-tbody-container{
+    width: 100%;
+    height: 355px;
+    overflow: auto;
+}
+.o-s-d-tbody-container div:nth-child(3n){
+    background: #f6f6f6;  
+}
+.o-s-d-tbody{
+    font-size: 12px;
+    font-weight: normal;
+    height: 40px;
+}
+.o-s-d-tbody li{
+    height: 40px;
+    line-height: 40px;
+}
+.o-s-d-tbody span{
+    display: inline-block;
+    height: 40px;
+    line-height: 40px;
+    width: 40px;
+    transition: all 200 ease-in;
+}
+/* 小三角反转 */
+.o-s-d-tbody span.rotate_sanjiao{
+    transform-origin: center;
+    transform: rotateZ(-90deg);
+}
+.o-s-d-tbody span img{
+    width: 20px;
+    height: 20px;
+    margin: 10px;
+    cursor: pointer;
+}
+/* 下拉列表 */
+.o-s-d-tbody-slidedown{
+    list-style: none;
+    width: 95%;
+    height: auto;
+    margin: 0 auto;
+    font-size: 14px;
+    background: #f6f6f6; 
+    display: none;
+}
+.o-s-d-tbody-slidedown li{
+    display: block;
+    float: left;
+    height: 30px;
+    line-height: 30px;
+    width: 150px;
+    overflow: auto;
+}
+.o-s-d-tbody-slidedown li::-webkit-scrollbar{
+    display: none;
+}
+.s-c-thead li:nth-child(1){
+    margin-left: 10px;
+}
+.o-s-d-tbody-slidedown li.s-c-shortLi{
+    width: 125px;
+}
+.o-s-d-tbody-slidedown .s-c-thead{
+    border-bottom: 1px solid #909399;
+    font-weight: bold;
+    height: 30px;
+    width: 100%;
+    margin: 0 auto;
+}
+.o-s-d-tbody-slidedown-tbody-container{
+    width: 100%;
+    height: auto;
+    max-height: 260px;
+    background-color: rgba(227, 230, 228, 0.788);
+    overflow: auto;
+}
+.o-s-d-tbody-slidedown-tbody-container::after{
+    content: "";
+    display: block;
+    clear: both;
+}
+.s-c-tbody{
+    height: 30px;
+    width: 100%;
+    margin: 0 auto;
+    border-bottom: 1px solid #909399;
+}
+.s-c-tbody li:nth-child(1){
+    margin-left: 10px;
+}
+/* 加权排名下拉 */
+.o-s-d-tbody-slidedown-1{
+    list-style: none;
+    width: 95%;
+    height: auto;
+    margin: 0 auto;
+    font-size: 14px;
+    overflow: hidden;
+    display: none;
+    background: #f6f6f6; 
+}
+.o-s-d-tbody-slidedown-1 li{
+    display: block;
+    float: left;
+    height: 30px;
+    line-height: 30px;
+    width: 150px;
+    overflow: auto;
+}
+.o-s-1-thead{
+    width: 100%;
+    height: 30px;
+    line-height: 30px;
+    font-weight: bold;
+    border-bottom: 1px solid #909399;
+}
+.o-s-1-thead li:nth-child(1){
+    margin-left: 10px;
+}
+.o-s-1-tbody{
+    width: 100%;
+    height: 30px;
+    line-height: 30px;
+    border-bottom: 1px solid #909399;
+}
+.o-s-1-tbody li:nth-child(1){
+    margin-left: 10px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
