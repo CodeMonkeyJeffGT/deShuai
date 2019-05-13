@@ -6,9 +6,31 @@ class AnalyseController extends BaseController{
 
     public function __construct(){}
 
+    private static $sentence = 'http://www.lideshuai.cn/analysis/sentence?s=';
+    private static $words = 'http://www.lideshuai.cn/analysis/best/word?s=';
+
     private static $number = 10;
 
     private $lists;
+
+    public function sentence()
+    {
+        $sentence = input('get.sentence', '');
+        $result = json_decode($this->doRequest(static::$sentence . $sentence), true);
+        $keywords = json_decode($this->doRequest(static::$words . $sentence), true);
+        $rst = array(
+            'result' => $result['positive'] > $result['negative'] ? 1 : 0,
+            'positive' => $result['positive'],
+            'negative' => $result['negative'],
+            'keyword' => $keywords['result'],
+        );
+        $this->returnJson(json_encode($rst));
+    }
+
+    public function file()
+    {
+
+    }
 
 	public function topic()
 	{
@@ -72,7 +94,7 @@ class AnalyseController extends BaseController{
         $page = input('get.page', 1);
         $query = input('get.query', 1);
         $query = $this->encodeQuery($query);
-
+        
     }
 
     private function encodeQuery($query): string
