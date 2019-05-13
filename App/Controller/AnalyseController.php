@@ -31,7 +31,32 @@ class AnalyseController extends BaseController{
 
     public function file()
     {
-        $filepath = input('get.file');
+        date_default_timezone_set('PRC');
+        $file = $_FILES['file'];
+        if ($file["error"] > 0)
+        {
+            $this->error('上传失败');
+        }
+        $filename = __DIR__ . '/uploads/files/' . $file['name'];
+        move_uploaded_file($file['tmp_name'], $filename);
+        $name = $file['name'];
+        $time = date('Y-m-d');
+        $rst = $this->doRequest(static::$file . $filename);
+        $old = explode("\n", file_get_contents($filename));
+        $new = json_decode($rst);
+        for ($i = 0, $len = count($old); $i < $len; $i++) {
+            $old[$i] .= ',' . $new[$i];
+        }
+        $old = json_encode($old);
+        $rstFile = __DIR__ . '/uploads/rst/' . $file['name'];
+        file_put_contents($rstFile, $old);
+        $result = array(
+            'filename' => $name,
+            'filedate' => $time,
+            'filestatus' => '1',
+            'fileurl' => $rstFile,
+        );
+        $this->returnJson($result);
     }
 
 	public function topic()
