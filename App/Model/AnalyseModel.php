@@ -7,7 +7,7 @@ class AnalyseModel extends Model{
     public function getContents($query = '')
     {
 		$sql = '
-            SELECT `c`.`Id` `id`, `c`.`Title` `title`, `c`.`Replycount` `replycount`, sum(`rd`.`result`) `positive`, count(`rd`.`result`) - sum(`rd`.`result`) `negative` 
+            SELECT `c`.`Id` `id`, `c`.`Title` `title`, `c`.`Replycount` `replycount`, sum(`rd`.`result`) `positive`, count(`rd`.`result`) - sum(`rd`.`result`) `negative`, GROUP_CONCAT(`r`.`Reply_Content`, "[,}]") `replyContent`
             FROM `content` `c`
             LEFT JOIN `reply` `r` ON `c`.`Id` = `r`.`Content_ID`
             LEFT JOIN `result_dict` `rd` ON `r`.`id` = `rd`.`id`

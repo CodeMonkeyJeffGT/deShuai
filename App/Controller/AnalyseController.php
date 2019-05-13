@@ -6,7 +6,7 @@ class AnalyseController extends BaseController{
 
     public function __construct(){}
 
-    private static $sentence = 'http://www.lideshuai.cn/analysis/sentence?s=';
+    private static $sentence = 'http://www.lideshuai.cnqaw/analysis/sentence?s=';
     private static $words = 'http://www.lideshuai.cn/analysis/best/word?s=';
     private static $fileWords = 'www.lideshuai.cn/analysis/best/file?file=';
     private static $file = 'www.lideshuai.cn/analysis/bayes?file=';
@@ -31,7 +31,7 @@ class AnalyseController extends BaseController{
 
     public function file()
     {
-
+        $filepath = input('get.file');
     }
 
 	public function topic()
@@ -45,6 +45,8 @@ class AnalyseController extends BaseController{
             ->setPage($page)
             ->toPercent()
             ->addHundred()
+            ->signToNothing()
+            ->getKeyWords()
             ->jsonEncode()
             ->getData()
         ;
@@ -169,6 +171,16 @@ class AnalyseController extends BaseController{
         $lists = $this->lists;
         for ($i = 0, $len = count($lists); $i < $len; $i++) {
             $lists[$i]['replycount'] = '' . ((int)$lists[$i]['replycount'] + 100);
+        }
+        $this->lists = $lists;
+        return $this;
+    }
+
+    private function signToNothing(): self
+    {
+        $lists = $this->lists;
+        for ($i = 0, $len = count($lists); $i< $len; $i++) {
+            $lists[$i]['replyContent'] = str_replace('[,}]', '', $lists[$i]['replyContent']);
         }
         $this->lists = $lists;
         return $this;
