@@ -8,7 +8,7 @@ class UserModel extends Model{
 		$sql = '
 			SELECT `id`, `password`
 			FROM `user`
-			WHERE `account` = ' . $account . '
+			WHERE `account` = "' . $account . '"
 		';
 		return $this->query($sql);
 	}
@@ -25,7 +25,7 @@ class UserModel extends Model{
 	public function changePass($id, $password) {
 		$sql = '
 			UPDATE `user`
-			SET `password` = ' . $password . '
+			SET `password` = "' . $password . '"
 			WHERE `id` = ' . $id . '
 		';
 		$this->query($sql);

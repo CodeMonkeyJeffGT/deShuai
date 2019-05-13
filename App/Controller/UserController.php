@@ -17,10 +17,8 @@ class UserController extends BaseController{
 
 		$userDb = model('user');
 		$user = $userDb->getByAcc($account);
-		$id =  0;
 		if (count($user) > 0) {
-			$id = $user[0]['id'];
-			if ($user[0]['password'] != $password) {
+			if ($user[0]['password'] == $password) {
 				session('id', $user[0]['id']);
 				$this->success();
 			} else {
@@ -33,6 +31,9 @@ class UserController extends BaseController{
 
 	public function changePassword()
 	{
+		if (empty(session('id'))) {
+			$this->error('请先登录');
+		}
 		$password = input('post.password', '');
 		$pass = input('post.pass', '');
 		$checkPass = input('post.checkPass', '');
@@ -45,8 +46,9 @@ class UserController extends BaseController{
 		if ($checkPass != $pass) {
 			$this->error('两次输入的新密码不同');
 		}
+		$userDb = model('user');
 		$user = $userDb->getById(session('id'));
-		if ($user[0]['password'] != $password) {
+		if ($user[0]['password'] == $password) {
 			$userDb->changePass(session('id'), $pass);
 			$this->success();
 		} else {
