@@ -14,6 +14,7 @@ class AnalyseController extends BaseController{
 	{
         $page = input('get.page', 1);
         $query = input('get.query', '');
+        $query = $this->encodeQuery($query);
         $analyseDb = model('analyse');
         $rst = $analyseDb->getContents($query);
         $rst = $this->setData($rst)
@@ -27,6 +28,7 @@ class AnalyseController extends BaseController{
 
     public function words()
     {
+
     }
     
     public function hots()
@@ -39,6 +41,23 @@ class AnalyseController extends BaseController{
         $page = input('get.page', 1);
         $query = input('get.query', 1);
 
+    }
+
+    private function encodeQuery($query): string
+    {
+        $query = '' . $query;
+        if ($query !== '') {
+            $arr = array();
+            for ($i = 0, $len = mb_strlen($query); $i < $len; $i++)
+            {
+                $arr[] = mb_substr($query, $i, 1);
+            }
+            $query = '%' . implode('%', $arr) . '%';
+        }
+        if ($query === '') {
+            $query = '%';
+        }
+        return $query;
     }
 
     private function setData($lists): self

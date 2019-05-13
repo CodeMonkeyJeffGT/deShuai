@@ -10,6 +10,7 @@ class AnalyseModel extends Model{
             FROM `content` `c`
             LEFT JOIN `reply` `r` ON `c`.`Id` = `r`.`Content_Id`
             LEFT JOIN `result_dict` `rd` ON `r`.`id` = `rd`.`id`
+            WHERE `c`.`Title` LIKE "' . $query . '"
             GROUP BY `c`.`Id`
             ORDER BY `c`.`Replycount` DESC
             LIMIT 1000;
