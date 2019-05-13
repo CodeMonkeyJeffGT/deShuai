@@ -22,7 +22,7 @@ class TopicController extends BaseController{
             ->jsonDecode()
             ->arrToStr()
             ->sortArr()
-            ->getPage($page)
+            ->setPage($page)
             ->jsonEncode()
             ->getData()
         ;
@@ -37,7 +37,7 @@ class TopicController extends BaseController{
             ->jsonDecode()
             ->arrToStr()
             ->sortArr()
-            ->getPage($page)
+            ->setPage($page)
             ->jsonEncode()
             ->getData()
         ;
@@ -52,7 +52,7 @@ class TopicController extends BaseController{
             ->jsonDecode()
             ->arrToStr()
             ->sortArr()
-            ->getPage($page)
+            ->setPage($page)
             ->jsonEncode()
             ->getData()
         ;
@@ -100,7 +100,7 @@ class TopicController extends BaseController{
         return $this;
     }
 
-    private function getPage($page = 1): self
+    private function setPage($page = 1): self
     {
         $len = count($this->lists);
         if ($len < $page * static::$number) {

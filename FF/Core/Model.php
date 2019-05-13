@@ -10,7 +10,7 @@ class Model extends \PDO {
 		try{
 			parent::__construct($dsn, $username, $passwd, array(\PDO::MYSQL_ATTR_INIT_COMMAND => "set names " . Config::get('DB_CHARSET')));
 		} catch(\PDOException $e) {
-			p($e->getMessage());
+			p($e->getMessage(), true);
 		}
 	}
 

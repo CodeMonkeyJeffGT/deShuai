@@ -10,6 +10,7 @@ return array(
 	'DB_DBNAME' => '',
 	'DB_USERNAME' => '',
 	'DB_PASSWORD' => '',
+	'DB_CHARSET' => '',
 	'LOG_DRIVE' => 'file',
 	'LOG' => 'logs/',
 );
