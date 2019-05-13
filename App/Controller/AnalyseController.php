@@ -4,8 +4,6 @@ use App\Controller\BaseController;
 
 class AnalyseController extends BaseController{
 
-    public function __construct(){}
-
     private static $sentence = 'http://www.lideshuai.cnqaw/analysis/sentence?s=';
     private static $words = 'http://www.lideshuai.cn/analysis/best/word?s=';
     private static $fileWords = 'www.lideshuai.cn/analysis/best/file?file=';

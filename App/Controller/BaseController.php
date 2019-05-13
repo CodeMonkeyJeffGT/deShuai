@@ -12,6 +12,7 @@ class BaseController extends Controller{
 
 	public function __construct() {
 		date_default_timezone_set('PRC');
+		header('Content-type: application/json');
 	}
 
 	protected function returnJson($json)

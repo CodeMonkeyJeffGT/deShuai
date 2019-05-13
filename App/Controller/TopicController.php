@@ -4,8 +4,6 @@ use App\Controller\BaseController;
 
 class TopicController extends BaseController{
 
-    public function __construct(){}
-        
     private static $now = 'http://www.lideshuai.cn/baidu/now';
     private static $today = 'http://www.lideshuai.cn/baidu/today';
     private static $seven = 'http://www.lideshuai.cn/baidu/seven';
