@@ -34,7 +34,37 @@ class AnalyseController extends BaseController{
     
     public function hots()
     {
-
+        date_default_timezone_set('PRC');
+        $hour = (int)date('H');
+        $min = (int)date('i');
+        $min = $min > 30 ? 1 : 0;
+        $arr = array();
+        for ($i = 0; $i < 10; $i++) {
+            $arr[] = array(
+                'time' => ($hour < 10 ? '0' . $hour : $hour) . ':' . ($min * 30 < 10 ? '0' . $min * 30 : $min * 30),
+                'value' => '' . mt_rand(6, 20),
+                'min' => '0',
+                'max' => '0',
+            );
+            $min = 1 - $min;
+            $hour = $hour - $min;
+            if ($hour < 0) {
+                $hour = 24;
+            }
+        }
+        $min = 0;
+        $max = 0;
+        for ($i = 1; $i < 10; $i++) {
+            if ($arr[$i]['value'] < $arr[$min]['value']) {
+                $min = $i;
+            }
+            if ($arr[$i]['value'] > $arr[$max]['value']) {
+                $max = $i;
+            }
+        }
+        $arr[$min]['min'] = '1';
+        $arr[$max]['max'] = '1';
+        $this->returnJson(json_encode($arr));
     }
 
     public function comments()
