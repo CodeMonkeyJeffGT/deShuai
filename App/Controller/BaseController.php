@@ -48,7 +48,7 @@ class BaseController extends Controller{
 			CURLOPT_URL => $url, 
 			CURLOPT_RETURNTRANSFER => 1, 
 			CURLOPT_FORBID_REUSE => 1, 
-			CURLOPT_TIMEOUT => 10, 
+			// CURLOPT_TIMEOUT => 10, 
 		); 
 	
 		$ch = curl_init(); 

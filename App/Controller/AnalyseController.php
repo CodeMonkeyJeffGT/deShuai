@@ -55,7 +55,12 @@ class AnalyseController extends BaseController{
 
     public function words()
     {
-
+        // $lists = $this->doRequest(static::$fileWords . '/root/CNC/Analysis/data/title.CSV');
+        // $lists = json_decode($lists, true)['result'];
+        // $lists = array_slice($lists, 0, 50);
+        // $lists = json_encode($lists);
+        $lists = '["\u9ece\u5eb6","\u65f6\u5019","\u8d54\u507f\u6807\u51c6","\u6587\u827a\u754c","\u4eba\u53e3\u8001\u9f84\u5316","\u4eba\u8d29\u5b50","\u5efa\u8bae","\u519c\u6751","\u6709\u620f","\u4e0b\u5c97\u5de5\u4eba","\u53f0\u80de","\u76db\u4f1a","\u8001\u9f84\u5316","\u9ad8\u804c","\u8425\u5546","\u6d88\u606f","\u5355\u65b9","\u5b9e\u4f53","\u6c11\u751f","\u4e61\u9547","\u533b\u7597\u6cd5","\u4eba\u5de5\u667a\u80fd","\u5957\u82b1","\u9a7e\u6821","\u6c11\u751f","\u62a5\u544a","\u8001\u8d56","\u4eba\u5de5\u667a\u80fd","\u8272\u5f31","\u4e8c\u9662","\u533a\u5757","\u70ed\u70b9\u8bdd\u9898","\u836f\u54c1","\u4e61\u6751","\u95ee\u9898","\u6770\u51fa\u4eba\u624d","\u53d1\u529b","\u8cea\u91cf","\u5f81\u7a0b","\u5c0f\u8c79","\u5de1\u793c","\u9886\u822a","\u5171\u521b","\u5927\u901a\u9053","\u70ed\u8bcd","\u70ed\u8bcd","\u4e2d\u5916\u8bb0\u8005","\u96be\u9898","\u7fa4\u4f17","\u9ad8\u8d28\u91cf"]';
+        $this->returnJson($lists);
     }
     
     public function hots()
