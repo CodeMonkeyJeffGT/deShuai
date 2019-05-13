@@ -19,6 +19,7 @@ class AnalyseController extends BaseController{
         $rst = $analyseDb->getContents($query);
         $rst = $this->setData($rst)
             ->setPage($page)
+            ->toPercent()
             ->addHundred()
             ->jsonEncode()
             ->getData()
@@ -40,6 +41,7 @@ class AnalyseController extends BaseController{
     {
         $page = input('get.page', 1);
         $query = input('get.query', 1);
+        $query = $this->encodeQuery($query);
 
     }
 
@@ -78,6 +80,24 @@ class AnalyseController extends BaseController{
             $left = static::$number;
         }
         $this->lists = array_slice($this->lists, $min, $left);
+        return $this;
+    }
+
+    private function toPercent(): self
+    {
+        $lists = $this->lists;
+        for ($i = 0, $len = count($lists); $i < $len; $i++) {
+            if ((int)$lists[$i]['positive'] + (int)$lists[$i]['negative'] == 0) {
+                $lists[$i]['positive'] = '50';
+                $lists[$i]['negative'] = '50';
+            } else {
+                $lists[$i]['positive'] = (int)(((int)$lists[$i]['positive'] / ((int)$lists[$i]['positive'] + (int)$lists[$i]['negative'])) * 100);
+                $lists[$i]['negative'] = 100 - $lists[$i]['positive'];
+            }
+            $lists[$i]['positive'] .= '%';
+            $lists[$i]['negative'] .= '%';
+        }
+        $this->lists = $lists;
         return $this;
     }
 
