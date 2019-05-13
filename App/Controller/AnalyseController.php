@@ -8,6 +8,8 @@ class AnalyseController extends BaseController{
 
     private static $sentence = 'http://www.lideshuai.cn/analysis/sentence?s=';
     private static $words = 'http://www.lideshuai.cn/analysis/best/word?s=';
+    private static $fileWords = 'www.lideshuai.cn/analysis/best/file?file=';
+    private static $file = 'www.lideshuai.cn/analysis/bayes?file=';
 
     private static $number = 10;
 
@@ -94,6 +96,15 @@ class AnalyseController extends BaseController{
         $page = input('get.page', 1);
         $query = input('get.query', 1);
         $query = $this->encodeQuery($query);
+        $analyseDb = model('analyse');
+        $rst = $analyseDb->getReply($query);
+        $rst = $this->setData($rst)
+            ->setPage($page)
+            ->getKeywords()
+            ->jsonEncode()
+            ->getData()
+        ;
+        $this->returnJson($rst);
         
     }
 
@@ -158,6 +169,16 @@ class AnalyseController extends BaseController{
         $lists = $this->lists;
         for ($i = 0, $len = count($lists); $i < $len; $i++) {
             $lists[$i]['replycount'] = '' . ((int)$lists[$i]['replycount'] + 100);
+        }
+        $this->lists = $lists;
+        return $this;
+    }
+
+    private function getKeywords(): self
+    {
+        $lists = $this->lists;
+        for ($i = 0, $len = count($lists); $i < $len; $i++) {
+            $lists[$i]['keywords'] = json_decode($this->doRequest(static::$words . $lists[$i]['replyContent']), true)['result'];
         }
         $this->lists = $lists;
         return $this;
