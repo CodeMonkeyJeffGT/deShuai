@@ -22,11 +22,11 @@ class UserModel extends Model{
 		return $this->query($sql);
 	}
 
-	public function changePass($id, $password) {
+	public function changePass($account, $password) {
 		$sql = '
 			UPDATE `user`
 			SET `password` = "' . $password . '"
-			WHERE `id` = ' . $id . '
+			WHERE `account` = "' . $account . '"
 		';
 		$this->query($sql);
 	}
