@@ -42,6 +42,9 @@ class AnalyseController extends BaseController{
         $rst = $this->doRequest(static::$file . 'http://' . $_SERVER['SERVER_NAME'] . '/analyse/download?file=' . $filename);
         $old = explode("\n", file_get_contents($filename));
         $new = json_decode($rst, true)['result'];
+        p($old);
+        p($new);
+        die;
         for ($i = 0, $len = count($old); $i < $len; $i++) {
             $old[$i] .= ',' . $new[$i];
         }
