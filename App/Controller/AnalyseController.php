@@ -39,9 +39,12 @@ class AnalyseController extends BaseController{
         move_uploaded_file($file['tmp_name'], $filename);
         $name = $file['name'];
         $time = date('Y-m-d');
-        $rst = $this->doRequest(static::$file . $filename);
+        $rst = $this->doRequest(static::$file . 'http://' . $_SERVER['SERVER_NAME'] . '/analyse/download?file=' . $filename);
         $old = explode("\n", file_get_contents($filename));
-        $new = json_decode($rst);
+        $new = json_decode($rst, true);
+        p($old);
+        p($new);
+        die;
         for ($i = 0, $len = count($old); $i < $len; $i++) {
             $old[$i] .= ',' . $new[$i];
         }
