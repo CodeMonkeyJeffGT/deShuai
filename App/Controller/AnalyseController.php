@@ -54,6 +54,7 @@ class AnalyseController extends BaseController{
             'filestatus' => '1',
             'fileurl' => $rstFile,
         );
+        $result = json_encode($result);
         $this->returnJson($result);
     }
 
