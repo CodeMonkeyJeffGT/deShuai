@@ -41,14 +41,12 @@ class AnalyseController extends BaseController{
         $time = date('Y-m-d');
         $rst = $this->doRequest(static::$file . 'http://' . $_SERVER['SERVER_NAME'] . '/analyse/download?file=' . $filename);
         $old = explode("\n", file_get_contents($filename));
-        $new = json_decode($rst, true);
-        p($old);
-        p($new);
-        die;
+        $new = json_decode($rst, true)['result'];
         for ($i = 0, $len = count($old); $i < $len; $i++) {
             $old[$i] .= ',' . $new[$i];
         }
         $old = json_encode($old);
+        p($old);die;
         $rstFile = __DIR__ . '/uploads/rst/' . $file['name'];
         file_put_contents($rstFile, $old);
         $rstFileUrl = 'http://' . $_SERVER['SERVER_NAME'] . '/analyse/download?file=' . $rstFile;
