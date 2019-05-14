@@ -48,7 +48,7 @@ class AnalyseController extends BaseController{
         $old = json_encode($old);
         $rstFile = __DIR__ . '/uploads/rst/' . $file['name'];
         file_put_contents($rstFile, $old);
-        $rstFileUrl = 'http://' . $_SERVER['SERVER_NAME'] . '/Application/uploads/rst/' . $file['name'];
+        $rstFileUrl = 'http://' . $_SERVER['SERVER_NAME'] . '/analyse/download?file=' . $rstFile;
         $result = array(
             'filename' => $name,
             'filedate' => $time,
@@ -57,6 +57,20 @@ class AnalyseController extends BaseController{
         );
         $result = json_encode($result);
         $this->returnJson($result);
+    }
+
+    public function download()
+    {
+        $file = input('get.file');
+        header('Content-Description: File Transfer');
+        header('Content-Type: application/octet-stream');
+        header('Content-Disposition: attachment; filename="'.basename($file).'"');
+        header('Expires: 0');
+        header('Cache-Control: must-revalidate');
+        header('Pragma: public');
+        header('Content-Length: ' . filesize($file));
+        readfile($file);
+        exit;
     }
 
 	public function topic()
