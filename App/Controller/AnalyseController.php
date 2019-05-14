@@ -47,8 +47,8 @@ class AnalyseController extends BaseController{
         for ($i = 0, $len = count($old); $i < $len; $i++) {
             $old[$i] .= ',' . $new[$i];
         }
-        $old = json_encode($old);
         p($old);die;
+        $old = json_encode($old);
         $rstFile = __DIR__ . '/uploads/rst/' . $file['name'];
         file_put_contents($rstFile, $old);
         $rstFileUrl = 'http://' . $_SERVER['SERVER_NAME'] . '/analyse/download?file=' . $rstFile;
