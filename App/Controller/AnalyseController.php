@@ -4,7 +4,7 @@ use App\Controller\BaseController;
 
 class AnalyseController extends BaseController{
 
-    private static $sentence = 'http://www.lideshuai.cnqaw/analysis/sentence?s=';
+    private static $sentence = 'http://www.lideshuai.cn/analysis/sentence?s=';
     private static $words = 'http://www.lideshuai.cn/analysis/best/word?s=';
     private static $fileWords = 'www.lideshuai.cn/analysis/best/file?file=';
     private static $file = 'www.lideshuai.cn/analysis/bayes?file=';
