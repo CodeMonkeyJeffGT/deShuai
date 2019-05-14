@@ -13,6 +13,11 @@ class BaseController extends Controller{
 	public function __construct() {
 		date_default_timezone_set('PRC');
 		header('Content-type: application/json');
+		header('Access-Control-Allow-Credentials: true');
+        header('Access-Control-Allow-Origin:http://localhost:8080');
+        header('Access-Control-Allow-Headers:token, Origin, X-Requested-With, Content-Type, Accept');
+        header('Access-Control-Allow-Methods:PUT,POST,GET,DELETE,OPTIONS');
+        header('X-Powered-By: 3.2.1');
 	}
 
 	protected function returnJson($json)
