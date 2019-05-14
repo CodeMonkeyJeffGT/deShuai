@@ -48,7 +48,7 @@ class AnalyseController extends BaseController{
         $old = json_encode($old);
         $rstFile = __DIR__ . '/uploads/rst/' . $file['name'];
         file_put_contents($rstFile, $old);
-        $rstFileUrl = '/Application/uploads/rst/' . $file['name'];
+        $rstFileUrl = 'http://' . $_SERVER['SERVER_NAME'] . '/Application/uploads/rst/' . $file['name'];
         $result = array(
             'filename' => $name,
             'filedate' => $time,
