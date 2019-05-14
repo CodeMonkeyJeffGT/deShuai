@@ -6,7 +6,7 @@ use App\Vendor\Nefu;
 class UserController extends BaseController{ 
 
 	public function login(){
-		$account = input('post.account', '');
+		$account = input('post.username', '');
 		$password = input('post.password', '');
 		if (empty($account)) {
 			$this->error('请输入账号');
