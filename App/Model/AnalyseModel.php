@@ -13,7 +13,6 @@ class AnalyseModel extends Model{
             LEFT JOIN `result_dict` `rd` ON `r`.`id` = `rd`.`id`
             WHERE `c`.`Title` LIKE "' . $query . '"
             GROUP BY `c`.`Id`
-            ORDER BY `c`.`Replycount` DESC
             LIMIT 1000;
         ';
         $rst = $this->query($sql);
